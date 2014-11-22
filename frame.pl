@@ -19,7 +19,6 @@ plain: /- ( [^ SPACE TAB EOL CR NL LSQUARE RSQUARE ]* ) /
     use Pegex::Base;
     extends 'Pegex::Tree';
 
-    use Data::Dumper;
     sub got_title { @{$_[1]} }
     sub got_row { @{$_[1]} }
     sub got_section { +{ @{$_[1]} } }
