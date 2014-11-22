@@ -1,2 +1,2 @@
-## parse frame config file using Pegexd
+## parse frame config file using Pegex
 
