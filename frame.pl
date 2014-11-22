@@ -22,6 +22,7 @@ plain: /- ( [^ SPACE TAB EOL CR NL LSQUARE RSQUARE ]* ) /
     sub got_title { @{$_[1]} }
     sub got_row { @{$_[1]} }
     sub got_section { +{ @{$_[1]} } }
+    sub got_frame { +{ map %$_, @{$_[1]} } }
 
 }
 
@@ -34,4 +35,20 @@ psvt nsvt
 npn18
 __
 
-print Dumper $result
+say Dumper $result;
+
+say gen($result);
+
+sub gen {
+    my $hash = shift;
+
+    my $result = '';
+    foreach my $section ( keys $hash ) {
+        $result .= "[$section]\n";
+        foreach my $row ( @{ $hash->{$section} } ) {
+            $result .= join ' ', @$row;
+            $result .= "\n";
+        }
+    }
+    return $result;
+}
