@@ -1,4 +1,5 @@
-## parse frame config file using Pegex
+## README
+1. parse frame config file using Pegex
 
-## generate frame config file
+2. generate frame config file
 
